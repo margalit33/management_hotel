@@ -1,0 +1,25 @@
+<div>
+    <h2>Order Treatment</h2>
+    <form (ngSubmit)="orderTreatment()">
+      <mat-form-field>
+        <mat-label>Treatment Type</mat-label>
+        <input matInput [(ngModel)]="treatmentData.treatment_type" name="treatment_type" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="treatmentData.description" name="description" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Order Treatment</button>
+    </form>
+  
+    <h2>Your Treatments</h2>
+    <div *ngFor="let treatment of treatments">
+      <mat-card>
+        <mat-card-title>{{ treatment.treatment_type }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ treatment.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

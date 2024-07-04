@@ -1,0 +1,10 @@
+<!-- src/app/components/room-list/room-list.component.html -->
+<div>
+    <h2>Rooms</h2>
+    <ul>
+      <li *ngFor="let room of rooms">
+        {{ room.number }} - {{ room.room_type }} - ${{ room.price_per_night }}
+      </li>
+    </ul>
+  </div>
+  

@@ -1,0 +1,12 @@
+<div>
+    <h2>Your Orders</h2>
+    <div *ngFor="let order of orders">
+      <mat-card>
+        <mat-card-title>{{ order.treatment_type }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ order.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

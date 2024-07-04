@@ -1,12 +1,26 @@
 import { Routes } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { AppComponent } from './app.component';
+import { RegisterComponent } from './register/register.component';
+import { RoomListComponent } from './components/room-list/room-list.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { OrdersComponent } from './orders/orders.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { ContactComponent } from './contact/contact.component';
+import { TreatmentsComponent } from './treatments/treatments.component';
 
 export const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
+  { path: '', component: RoomListComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: 'register', component: RegisterComponent },
+  { path: 'reservations', component: ReservationsComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'tickets', component: TicketsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'treatments', component: TreatmentsComponent }
 ];
+
+
+
+
+
+

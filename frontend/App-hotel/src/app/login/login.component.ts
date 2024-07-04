@@ -1,5 +1,6 @@
+// src/app/login/login.component.ts
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '..//auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -27,11 +28,9 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
-    const userData = { username: this.username, password: this.password };
-    this.authService.login(userData).subscribe(
+    this.authService.login(this.username, this.password).subscribe(
       response => {
         console.log(response);
-        localStorage.setItem('access_token', response.access);
         this.router.navigate(['/']);
       },
       error => {
@@ -40,3 +39,6 @@ export class LoginComponent {
     );
   }
 }
+
+
+

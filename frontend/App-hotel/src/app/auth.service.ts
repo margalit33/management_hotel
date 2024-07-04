@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private apiUrl = 'http://127.0.0.1:8000';
 
-  private baseUrl = 'http://127.0.0.1:8000/';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  register(userData: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}register/`, userData);
+  register(username: string, email: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register/`, { username, email, password });
   }
 
-  login(userData: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}login/`, userData);
+  login(username: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login/`, { username, password });
   }
 
   logout(): Observable<any> {
-    const token = localStorage.getItem('access_token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post(`${this.baseUrl}logout/`, {}, { headers });
+    return this.http.post(`${this.apiUrl}/logout/`, {});
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('access_token');
   }
 }
+
+
+
+
+
+
